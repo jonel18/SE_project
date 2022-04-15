@@ -13,7 +13,7 @@ This program lets the user easily interact with an online instructor and nutriti
 <li>  upload their personal information such as: height, weight, health conditions, daily activity, etc.,</li>
 <li>  make online payments for their services,</li>
 <li>  get their diet and the respective workout program,</li>
-<li>  contact the online shop and add products to the card, </li>
+<li>  contact the online shop and add products to the cart, </li>
 <li>  to review the services. </li>
   </ul>
 
