@@ -1,0 +1,91 @@
+title Sequence Diagram FitX
+
+participant TRAINER
+participant COMPUTER
+participant HOME
+participant MANAGE_CLIENTS
+participant CLIENT
+participant BLOG
+participant BLOG_POST
+participant DIET
+participant DIET_POST
+participant SHOP
+participant SHOP_POST
+participant SERVER
+
+TRAINER->COMPUTER:Connect...
+COMPUTER->SERVER:Requesting Connection
+COMPUTER<--SERVER:
+COMPUTER->HOME:Landing Page (Connection Successful)
+
+COMPUTER<--SERVER:
+TRAINER->SERVER:login(trainer, pswd)
+TRAINER<--SERVER:
+
+HOME->MANAGE_CLIENTS:Connect to Manage Clients Page
+MANAGE_CLIENTS->SERVER: Requesting connection
+COMPUTER<--SERVER:
+COMPUTER->MANAGE_CLIENTS:Connection Successful
+MANAGE_CLIENTS->CLIENT: add_diet()
+CLIENT->SERVER:Proccessing
+MANAGE_CLIENTS<--SERVER:
+MANAGE_CLIENTS->CLIENT: remove_diet()
+CLIENT->SERVER:Proccessing
+MANAGE_CLIENTS<--SERVER:
+MANAGE_CLIENTS->CLIENT: add_training_program()
+CLIENT->SERVER:Proccessing
+MANAGE_CLIENTS<--SERVER:
+MANAGE_CLIENTS->CLIENT: remove_training_program()
+CLIENT->SERVER:Proccessing
+MANAGE_CLIENTS<--SERVER:
+HOME<-MANAGE_CLIENTS:home()
+
+HOME->BLOG:Connect to Blog
+BLOG->SERVER:Requesting Connection
+COMPUTER<--SERVER:
+COMPUTER->BLOG: Connection Successful
+BLOG->BLOG_POST:add_post()
+BLOG_POST->SERVER:Proccessing
+BLOG<--SERVER:
+BLOG->BLOG_POST:remove_post()
+BLOG_POST->SERVER:Proccessing
+BLOG<--SERVER:
+BLOG->BLOG_POST:edit_post()
+BLOG_POST->SERVER:Proccessing
+BLOG<--SERVER:
+HOME<-BLOG:home()
+
+HOME->DIET:Connect to Diet Page
+DIET->SERVER:Requesting Connection
+COMPUTER<--SERVER:
+COMPUTER->DIET: Connection Successful
+DIET->DIET_POST:add_post()
+DIET_POST->SERVER:Proccessing
+DIET<--SERVER:
+DIET->DIET_POST:remove_post()
+DIET_POST->SERVER:Proccessing
+DIET<--SERVER:
+DIET->DIET_POST:edit_post()
+DIET_POST->SERVER:Proccessing
+DIET<--SERVER:
+HOME<-DIET:home()
+
+HOME->SHOP:Connect to Shop Page
+SHOP->SERVER:Requesting Connection
+COMPUTER<--SERVER:
+COMPUTER->SHOP: Connection Successful
+SHOP->SHOP_POST:add_item()
+SHOP_POST->SERVER:Proccessing
+SHOP<--SERVER:
+SHOP->SHOP_POST:remove_item()
+SHOP_POST->SERVER:Proccessing
+SHOP<--SERVER:
+SHOP->SHOP_POST:edit_item()
+SHOP_POST->SERVER:Proccessing
+SHOP<--SERVER:
+HOME<-SHOP:home()
+
+
+
+TRAINER->HOME:logout()
+TRAINER<--HOME:

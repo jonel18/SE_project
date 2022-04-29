@@ -1,0 +1,39 @@
+title Sequence Diagram FitX
+
+participant ADMIN
+participant COMPUTER
+participant HOME
+participant ADMIN_PAGE
+
+
+participant MANAGE_TRAINERS
+
+participant SERVER
+
+
+
+
+ADMIN->COMPUTER:Connect...
+COMPUTER->SERVER:Requesting Connection
+COMPUTER<--SERVER:
+COMPUTER->HOME:Landing Page (Connection Successful)
+
+HOME->ADMIN_PAGE:Connect to Admin Page
+ADMIN_PAGE->SERVER:Requesting Connection
+COMPUTER<--SERVER:
+ADMIN->SERVER:login(admin, pswd)
+ADMIN<--SERVER:
+COMPUTER->ADMIN_PAGE:Admin Page (Connection Successful)
+
+ADMIN_PAGE->MANAGE_TRAINERS: add_trainer()
+MANAGE_TRAINERS->SERVER: Proccessing
+ADMIN_PAGE<--SERVER:
+ADMIN_PAGE->MANAGE_TRAINERS: remove_trainer()
+MANAGE_TRAINERS->SERVER: Proccessing
+ADMIN_PAGE<--SERVER:
+HOME<-ADMIN_PAGE:home()
+
+
+
+ADMIN->HOME:logout()
+ADMIN<--HOME:
